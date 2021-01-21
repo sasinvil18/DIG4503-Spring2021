@@ -1,6 +1,6 @@
 //when we talk about Javascript, we are talking about the newer version which is ES6
 //new keywords - let and const to declare variables
-
+ss
 //value will probably change
 let varTest = 5;
 
