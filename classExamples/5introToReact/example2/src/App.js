@@ -67,10 +67,10 @@ class App extends React.Component{
         <div>{
           this.state.coins.map(
             function(item, index){
-              return <p key = {index}>{item}</p>
+              return <p key = {index}>{item}{index}</p>
             }
           )
-          }</div>
+        }</div>
       </div>
     );
   }
