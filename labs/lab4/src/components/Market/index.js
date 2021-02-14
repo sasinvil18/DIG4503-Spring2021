@@ -1,5 +1,5 @@
 import React from "react";
-import MarketItem from "./MarketItem";
+import MarketItem from "../MarketItem";
 
 class Market extends React.Component{
     constructor(props){
@@ -11,27 +11,23 @@ class Market extends React.Component{
     }
     render(){
         return(
-            <div>
-                <button onClick = {() => {
-                        const items = this.state.items;
-                        this.state.items.push("Item");
-                        this.setState({items: items});
-                    }
+           <div>
+               <button onClick = {() => {
+                    const items = this.state.items;
+                    this.state.items.push("Item");
+                    this.setState({items: items});
+                   }
                 }>
-                    Click to Add Item
-                </button>
-                <div>{
+                   Click to Add Item
+               </button>
+               <div>{
                     this.state.items.map(
-                        (count, key) => {
-                            this.state.items.count = count;
-                            this.state.items.key = key;
-                            return (<p key = {key}>
-                                <MarketItem />
-                            </p>);
+                        function(count, key){
+                            return <p key = {key}><MarketItem count = {key}/></p>
                         }
                     )
                 }</div>
-            </div>
+           </div>
         );
     }
 }
