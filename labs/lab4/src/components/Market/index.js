@@ -12,13 +12,14 @@ class Market extends React.Component{
     render(){
         return(
            <div>
+               <h2>Click the button to add a Market Item.</h2>
                <button onClick = {() => {
                     const items = this.state.items;
                     this.state.items.push(<MarketItem />);
                     this.setState({items: items});
                    }
                 }>
-                   Click to Add Item
+                   Add Item
                </button>
                <div>{
                     this.state.items.map(
