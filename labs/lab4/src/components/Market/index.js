@@ -14,7 +14,7 @@ class Market extends React.Component{
            <div>
                <button onClick = {() => {
                     const items = this.state.items;
-                    this.state.items.push("Item");
+                    this.state.items.push(<MarketItem />);
                     this.setState({items: items});
                    }
                 }>
