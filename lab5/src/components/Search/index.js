@@ -2,11 +2,12 @@ import Pokemon from "../Pokemon";
 import {useState} from "react";
 import Axios from "axios";
 
-function Search(){
+function Search(props){
   
   const [pokemon, setPokemon] = useState({});
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(0);
+  const [nfound, setNfound] = useState(0);
 
   function searchMonster() {
     setLoading(true);
@@ -17,6 +18,7 @@ function Search(){
       setLoading(false);
     })
     .catch(() => {
+      setNfound(true);
       console.log("Not Found!");
     })
   }
@@ -37,8 +39,11 @@ function Search(){
       }
 
       {
-        (loading == true) ? (<p>Loading...</p>) 
-        : (<Pokemon data = {pokemon}/>)
+        (loading === true) ? (<p>Loading...</p>) 
+        : (<Pokemon data = {pokemon} />)
+      }
+      {
+        (loading === true) && (nfound === true) ? (<p>Not Found!</p>) : (<p></p>)
       }
 
     </div>
