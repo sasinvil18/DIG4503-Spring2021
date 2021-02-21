@@ -6,7 +6,7 @@ function Pokemon(props){
     <div>
       <h2>{props.data.name}</h2>
       <p>{props.data.id}</p>
-      <img src= {props.data.sprites}/>
+      <img src= {props.data.sprites.front_default}/>
     </div>
   );
 
