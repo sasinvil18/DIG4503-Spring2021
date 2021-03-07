@@ -59,7 +59,7 @@ function Search(props){
                 <div>
                   {/*the placing of the pokemon in the team is delayed until the next one is
                   entered and I don't know how to fix that but I've tried offsetting the key to 
-                  help that*/}
+                  help adjust to that*/}
                   <p>{team[key + 1]}</p>
                 </div>
               );
