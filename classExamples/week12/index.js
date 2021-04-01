@@ -1,15 +1,37 @@
 import Express from 'express';
-import Database from "./Database.js"
+/*import Database from "./Database.js"*/
 
 const App = Express();
 const port = 45030;
 
-const d = new Database();
+//add this for the lab and it will give you access to req.body
+App.use(Express.json());
+
+//url parameters are written ?blank=blank
+App.get("/:id", (req, res) => {
+  res.json(
+    {
+      query: req.query
+    }
+  );
+});
+/*App.put("/:id", (req, res) => {
+  res.json(
+    {
+      id: req.params.id,
+      body: req.body
+    }
+  );
+});*/
+
+App.listen(port);
+
+//database incorporation
+/*const d = new Database();
 
 //Create
 App.put("/people/:person", (req, res) => {
 
-    // Set a default (search failed) result
     let person = req.params.person;
 
     d.createOne(person);
@@ -20,7 +42,6 @@ App.put("/people/:person", (req, res) => {
 //Read
 App.get("/people/:person", (req, res) => {
 
-  // Set a default (search failed) result
   let person = req.params.person;
 
   let result = d.readOne(person);
@@ -31,15 +52,15 @@ App.get("/people/:person", (req, res) => {
 //Delete
 App.delete("/people/:person", (req, res) => {
 
-  // Set a default (search failed) result
   let person = req.params.person;
 
   d.deleteMany(person);
   
-  res.json(result);
+  res.json(person);
 });
 
 // Listen on a port.
 App.listen(port, () => {
     console.log("Server running!");
 });
+*/

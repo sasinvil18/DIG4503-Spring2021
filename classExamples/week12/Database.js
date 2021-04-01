@@ -20,7 +20,9 @@ class Database {
     this.database = this.connection.db("<Database>");
     // Select a collection.
     this.collection = this.database.collection("<Collection>");
-}
+  }
+
+  //everything but find() returns a promise
 
 
   async createOne(person) {
