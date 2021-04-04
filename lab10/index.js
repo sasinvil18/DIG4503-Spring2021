@@ -35,12 +35,6 @@ App.get("/people/:person", (req, res) => {
   res.json(result);
 });
 
-/*let person = "Test";
-let result = d.readOne(person);
-
-  console.log(result);*/
-
-
 App.listen(port, () => {
   console.log("Server is running!")
 })

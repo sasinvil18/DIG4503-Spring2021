@@ -15,21 +15,28 @@ class Database {
   }
 
   async connect() {
-    this.connection = await MongoClient.connect(URL, {useUnifiedTopology: true});
-    this.datatbase = this.connection.db("lab10");
-    this.collection = this.datatbase.collection("people");
+    try{
+      this.connection = await MongoClient.connect(URL, {useUnifiedTopology: true});
+      this.datatbase = this.connection.db("lab10");
+      this.collection = this.datatbase.collection("people");
+    }
+    catch(error){
+      console.log("Error: " + error);
+    }
   }
 
   async createOne(fName, lName, favColor){
-    this.connect();
     if(this.collection != null) {
-      return await this.collection.insertOne(
+      let result = await this.collection.insertOne(
         {
           "firstName": fName, 
           "lastName": lName, 
           "favoriteColor": favColor
         }
       );
+      console.log("inserted " + result.firstName)
+
+      return(result);
     }
   }
 
