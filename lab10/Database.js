@@ -29,9 +29,9 @@ class Database {
     if(this.collection != null) {
       let result = await this.collection.insertOne(
         {
-          "firstName": fName, 
-          "lastName": lName, 
-          "favoriteColor": favColor
+          firstName: fName, 
+          lastName: lName, 
+          favoriteColor: favColor
         }
       );
       console.log("inserted " + result.firstName)

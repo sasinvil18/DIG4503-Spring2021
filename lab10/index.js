@@ -33,7 +33,10 @@ App.get("/people/:person", (req, res) => {
   let result = d.readOne(person);
 
   res.json(result);
+
+  d.close();
 });
+
 
 App.listen(port, () => {
   console.log("Server is running!")
