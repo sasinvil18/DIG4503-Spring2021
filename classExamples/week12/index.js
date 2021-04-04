@@ -20,7 +20,7 @@ App.get("/:id", (req, res) => {
     {
       id: req.params.id,
       body: req.body
-    }
+    } 
   );
 });*/
 

@@ -5,10 +5,13 @@ const URL = "mongodb+srv://SarahSinvil:XG33WSKyDgfTxRyp@cluster0.yuzwq.mongodb.n
 async function connect() {
   try{
     let connection = await MongoClient.connect(URL, {useUnifiedTopology: true});
-    let datatbase = connection.db("sample_mflix");
-    let collection = datatbase.collection("movies");
+    let datatbase = connection.db("lab10");
+    let collection = datatbase.collection("people");
 
-    let results = await collection.find({year: {$gt: 2014}, rated: "R", genres: "Drama"}).toArray();
+    let person = "Test";
+    let results = await collection.findOne({firstName: person});
+    //for .find, .toArray() must be added to the end
+
     console.log(results)
     /*let result = await collection.findOne({year: {$gt: 2010}});
     console.log(result);*/
