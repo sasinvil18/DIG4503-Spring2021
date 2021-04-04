@@ -12,7 +12,14 @@ async function connect() {
     let results = await collection.findOne({firstName: person});
     //for .find, .toArray() must be added to the end
 
-    console.log(results)
+    console.log(results);
+
+    let person2 = "Test";
+    let lName = "Test2";
+    let favColor = "Test3";
+    let results2 = await collection.insertOne({firstName: person2, lastName: lName, favoriteColor: favColor});
+
+    console.log(results2)
     /*let result = await collection.findOne({year: {$gt: 2010}});
     console.log(result);*/
 
