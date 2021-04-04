@@ -13,12 +13,15 @@ class Database {
 
     this.person = null;
   }
+
   async connect() {
     this.connection = await MongoClient.connect(URL, {useUnifiedTopology: true});
-    this.datatbase = connection.db("lab10");
-    this.collection = datatbase.collection("people");
+    this.datatbase = this.connection.db("lab10");
+    this.collection = this.datatbase.collection("people");
   }
+
   async createOne(fName, lName, favColor){
+    this.connect();
     if(this.collection != null) {
       return await this.collection.insertOne(
         {
@@ -29,16 +32,17 @@ class Database {
       );
     }
   }
-  async readOne(findPerson){
-    //let result = {person: "not found!"};
-    let result = await this.collection.findOne({"firstName": findPerson});
 
-    if(result == null){
-      result = {person: "not found!"};
+  async readOne(person){
+    let result = {person: "not found!"};
+
+    if(this.collection != null){
+      result = await this.collection.findOne({"firstName": person});
     }
 
-    return result;
+    return (result);
   }
+
   close() {
     if(this.collection != null) {
       this.connection.close();

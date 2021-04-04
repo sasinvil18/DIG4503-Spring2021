@@ -9,17 +9,17 @@ const d = new Database();
 App.use(Express.json());
 
 App.put("/people/create", (req, res) => {
-  const fName = req.body.firstName;
-  const lName = req.body.lastName;
-  const favColor = req.body.favoriteColor;
+  let fName = req.body.firstName;
+  let lName = req.body.lastName;
+  let favColor = req.body.favoriteColor;
 
   d.createOne(fName, lName, favColor);
 
   res.json(
     {
-      firstName: fName,
-      lastName: lName,
-      favoriteColor: favColor
+    "firstName": fName, 
+    "lastName": lName, 
+    "favoriteColor": favColor
     }
   );
 
