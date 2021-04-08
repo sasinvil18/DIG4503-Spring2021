@@ -1,0 +1,21 @@
+CRUD Operartions:
+
+Database.connect()
+
+PUT ( App.put() )-> database.createOne() -> collection.insertOne
+GET ( App.get() )-> database.readOne() -> collection.findOne()
+PATCH ( App.patch() )-> database.updateOne() -> collection.updateOne()
+DELETE ( App.delete() )-> database.deleteOne() -> collection.deleteOne()
+
+Database.close()
+
+
+Class Example:
+
+Collection of video games where each game has a title, rating, and review
+
+Resource Archetypes:
+  - Field (title, rating, review, id)
+  - Document (game)
+  - Collection (games)
+
