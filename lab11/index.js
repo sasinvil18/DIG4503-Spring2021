@@ -48,7 +48,7 @@ App.post("/books/search", async (req, res) => {
   const result = await d.readMany(searchQuery);
   
 
-  res.json(result);
+  res.json({books: result});
 });
 
 //PATCH ( App.patch() )-> database.updateOne() -> collection.updateOne()

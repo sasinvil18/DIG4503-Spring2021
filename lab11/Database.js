@@ -62,7 +62,7 @@ class Database {
   async readMany(searchQuery){
     if(this.collection != null){
       const result = null;
-      const postResult = await this.collection.find({searchQuery}).toArray();
+      const postResult = await this.collection.find(searchQuery).toArray();
 
       if(result != postResult){
         return postResult;
