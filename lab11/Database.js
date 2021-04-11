@@ -31,11 +31,10 @@ class Database {
     }
   }
 
-  //Will show up in database but when searched, the data for this document comes up null even though all of the fields are listed in the database
   async createOne(ISBN, title, author, description){
     if(this.collection != null) {
       const createResult = await this.collection.insertOne({
-        IBSN: ISBN,
+        ISBN: ISBN,
         title: title,
         author: author,
         description: description
@@ -46,7 +45,6 @@ class Database {
     } 
   }
 
-  //Working
   async readOne(ISBN){
     if(this.collection != null){
       const result = null;
@@ -79,16 +77,10 @@ class Database {
       {$set: {"author": author}},
       {$set: {"description": description}});
 
-      //not correct for lab
       return result;
-    }
-    else{
-      //dont use null
-      return null
     }
   }
 
-  //Haven't tested yet because I don't want to delete someon eles's document that they created
   async deleteOne(ISBN){
     if(this.collection != null){
       const result = await this.collection.deleteOne({"ISBN": ISBN});

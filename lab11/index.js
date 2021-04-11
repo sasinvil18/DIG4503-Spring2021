@@ -24,7 +24,12 @@ App.put("/books/:ISBN", async (req, res) => {
 
   const result = await d.createOne(ISBN, title, author, description);
 
-  res.json(result);
+  res.json({
+    ISBN: ISBN,
+    title: title,
+    author: author,
+    description:description
+  });
 
 });
 
@@ -50,10 +55,9 @@ App.post("/book/search", async (req, res) => {
 App.patch("/books/:ISBN", async (req, res) => {
   const ISBN = req.params.ISBN;
 
-  //Request body properties
   const title = req.body.title;
-  const author = req.body.rating;
-  const description = req.body.review;
+  const author = req.body.author;
+  const description = req.body.description;
 
   const result = await d.updateOne(ISBN, title, author, description);
 
