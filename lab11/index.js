@@ -42,7 +42,7 @@ App.get("/books/:ISBN", async (req, res) => {
   res.json(result)
 });
 
-App.post("/book/search", async (req, res) => {
+App.post("/books/search", async (req, res) => {
   const title = req.query.title;
   const author = req.query.author;
 

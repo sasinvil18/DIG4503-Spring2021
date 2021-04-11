@@ -61,7 +61,7 @@ class Database {
 
   async readMany(title, author){
     if(this.collection != null){
-      const result = await this.collection.find({"title": title}, {"author": author }).toArray({"books":[]});
+      const result = await this.collection.find({"title": title}, {"author": author }).toArray();
 
       return (result);
     }
@@ -73,12 +73,13 @@ class Database {
   async updateOne(ISBN, title, author, description){
     if(this.collection != null){
       const result = await this.collection.updateOne({"ISBN": ISBN}, 
-      {$set: {"title": title}},
-      {$set: {"author": author}},
-      {$set: {"description": description}});
+      {"$set": {title: title, author: author, description: description}});
 
       return result;
     }
+
+      
+  
   }
 
   async deleteOne(ISBN){
