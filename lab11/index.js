@@ -43,11 +43,11 @@ App.get("/books/:ISBN", async (req, res) => {
 });
 
 App.post("/books/search", async (req, res) => {
-  const title = req.query.title;
-  const author = req.query.author;
+  const searchQuery = req.query;
 
-  const result = await d.readMany(title, author);
+  const result = await d.readMany(searchQuery);
   
+
   res.json(result);
 });
 

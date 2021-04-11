@@ -59,14 +59,16 @@ class Database {
     }
   }
 
-  async readMany(title, author){
+  async readMany(searchQuery){
     if(this.collection != null){
-      const result = await this.collection.find({"title": title}, {"author": author }).toArray();
+      const result = null;
+      const postResult = await this.collection.find({searchQuery}).toArray();
 
-      return (result);
-    }
-    else{
-      return {books: ["not found"]};
+      if(result != postResult){
+        return postResult;
+      } else {
+        return {books: ["not found"]};
+      }
     }
   }
 
