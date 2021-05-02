@@ -88,11 +88,7 @@ App.patch("/team/:pokemon", async (req, res) => {
 
   const result = await d.updateOne(pokemon, id);
 
-  res.json({
-    username: username,
-    password: password,
-    name: name
-  });
+  res.json(result);
 
 });
 

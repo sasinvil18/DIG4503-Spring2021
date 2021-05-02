@@ -50,9 +50,7 @@ class Database {
         pokemon: pokemon
       });
       if(result != readResult){
-        return (
-          readResult
-        );
+        return (readResult);
       } else {
         return {"pokemon": "not found"};
       }
@@ -75,9 +73,7 @@ class Database {
         pokemon: pokemon
       });
       if(result != readResult){
-        return (
-          readResult
-        );
+        return (readResult);
       } else {
         return {"pokemon": "not found"};
       }

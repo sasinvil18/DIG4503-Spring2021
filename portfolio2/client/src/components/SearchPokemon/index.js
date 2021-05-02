@@ -6,17 +6,17 @@ function SearchPokemon(){
 
 
   const searchPokemon = (pokemon) => {
-    Axios.get("https://localhost:45030/team/" + pokemon)
+    Axios.get("http://localhost:45030/team/" + pokemon)
     .then(response => {
       console.log(response.data);
     })
     .catch(error => {
       console.log("Error: " + error)
     });
-  }
+  };
   return(
     <div>
-      <input type="text" onChange={(event) =>       setSearch(event.target.value)}></input>
+      <input type="text" onChange={(event) => setSearch(event.target.value)}></input>
       <button onClick={() => {
           searchPokemon(search);
       }}>Search Pokemon</button>

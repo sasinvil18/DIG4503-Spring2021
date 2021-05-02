@@ -19,7 +19,7 @@ function UpdatePokemon(){
       <input type="text" onChange={(event) =>       setUpdatePokeName(event.target.value)} placeholder="Pokemon Name"></input>
       <input type="text" onChange={(event) =>       setUpdatePokeId(event.target.value)} placeholder = "ID"></input>
       <button onClick={() => {
-          updatePokemon(updatePokeName);
+          updatePokemon(updatePokeName, updatePokeId);
       }}>Update Pokemon Team</button>
     </div>
   );
