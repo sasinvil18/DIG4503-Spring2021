@@ -104,39 +104,6 @@ App.delete("/team/:pokemon", async (req, res) => {
 
 });
 
-/*//GET ( App.get() )-> database.readOne() -> collection.findOne()
-App.get("/books/:ISBN", async (req, res) => {
-  const ISBN = req.params.ISBN;
-
-  const result = await d.readOne(ISBN);
-
-  res.json(result)
-});
-
-/*App.post("/books/search", async (req, res) => {
-  const searchQuery = req.query;
-
-  const result = await d.readMany(searchQuery);
-  
-
-  res.json({books: result});
-});
-
-//PATCH ( App.patch() )-> database.updateOne() -> collection.updateOne()
-App.patch("/books/:ISBN", async (req, res) => {
-  const ISBN = req.params.ISBN;
-
-  const title = req.body.title;
-  const author = req.body.author;
-  const description = req.body.description;
-
-  const result = await d.updateOne(ISBN, title, author, description);
-
-  res.json(result);
-});
-
-*/
-
 
 App.listen(port, () => {
   console.log("Server is running!");
