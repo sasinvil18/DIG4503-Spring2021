@@ -11,6 +11,8 @@ function AddPokemon(){
 
       let pokeName = response.data.name;
       let pokeId = response.data.id;
+
+      return (pokeName, pokeId)
     })
     .catch(error => {
       console.log("Error: " + error)
@@ -18,13 +20,15 @@ function AddPokemon(){
   }
 
   //use the pokeapi and place the data in the mongodb database
-  const createPokemon = (pokemon, id) => {
+  const createPokemon = (pokemon) => {
     Axios.put("https://localhost:45030/team/" + pokemon)
     .then(response => {
-      //pokeName = pokemon;
-      //pokeId = id;
+      const gettinginfo = getPokemon(pokemon)
 
-      console.log(response.data.name);
+      response.data.pokemon = gettinginfo.name;
+      response.data.id = gettinginfo.id;
+
+      console.log(response.data.pokemon);
       console.log(response.data.id);
     })
     .catch(error => {
